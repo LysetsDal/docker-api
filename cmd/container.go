@@ -19,9 +19,9 @@ type Port struct {
 }
 
 type Label struct {
-	com_example_vendor  string `json:"com.example.vendor"`
-	com_example_license string `json:"com.example.license"`
-	com_example_version string `json:"com.example.version"`
+	Com_example_vendor  string `json:"com.example.vendor"`
+	Com_example_license string `json:"com.example.license"`
+	Com_example_version string `json:"com.example.version"`
 }
 
 type NetworkSettings struct {
