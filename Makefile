@@ -1,5 +1,8 @@
-run:
-	@go run cmd/main.go
+app := bin/docker-api
 
-clean:
-	go mod tidy
+build:
+	@go build -o $(app) cmd/*.go
+
+run: build
+	@./$(app)
+
