@@ -19,9 +19,9 @@ type Port struct {
 }
 
 type Label struct {
-	Com_example_vendor  string `json:"com.example.vendor"`
-	Com_example_license string `json:"com.example.license"`
-	Com_example_version string `json:"com.example.version"`
+	ComExampleVendor  string `json:"com.example.vendor"`
+	ComExampleLicense string `json:"com.example.license"`
+	ComExampleVersion string `json:"com.example.version"`
 }
 
 type NetworkSettings struct {
@@ -40,7 +40,7 @@ type Network struct {
 	DNSNames    *[]string `json:"DNSNames"`
 }
 
-// Test to create a default container
+// CreateDefaultContainer Test to create a default container
 func CreateDefaultContainer() *Container {
 	return &Container{
 		Id:    "dummy_id",
