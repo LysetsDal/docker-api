@@ -1,4 +1,4 @@
-package main
+package types
 
 type InspectObject struct {
 	AppArmorProfile string   `json:"AppArmorProfile"`
