@@ -2,6 +2,7 @@ package utils
 
 import (
 	"encoding/json"
+	"fmt"
 	. "github.com/LysetsDal/docker-api/types"
 	"io"
 	"net/http"
@@ -13,11 +14,23 @@ func ReadJson(body io.Reader, v any) error {
 	return decoder.Decode(v)
 }
 
+func ParseJson(r *http.Request, payload any) error {
+	if r.Body == nil {
+		return fmt.Errorf("missing request body")
+	}
+
+	return json.NewDecoder(r.Body).Decode(payload)
+}
+
 // WriteJson Write Json with standard header.
 func WriteJson(w http.ResponseWriter, status int, v any) error {
 	w.WriteHeader(status)
 	w.Header().Set("Content-Type", "application/json")
 	return json.NewEncoder(w).Encode(v)
+}
+
+func WriteError(w http.ResponseWriter, status int, err error) {
+	WriteJson(w, status, map[string]string{"error": err.Error()})
 }
 
 // MakeHttpHandleFunc Make custom http.HandlerFunc

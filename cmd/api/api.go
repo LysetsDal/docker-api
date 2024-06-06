@@ -81,11 +81,8 @@ func (s *APIServer) Run() {
 
 	// Graceful shutdown on ctrl + c:
 	c := make(chan os.Signal, 1)
-
 	signal.Notify(c, os.Interrupt)
-
 	<-c
-
 }
 
 func logMW(next http.Handler) http.Handler {
@@ -96,10 +93,6 @@ func logMW(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
-
-// =======================================================
-// ==================== Controllers ======================
-// =======================================================
 
 // HomeHandler Displays version info
 func (s *APIServer) HomeHandler(w http.ResponseWriter, _ *http.Request) error {
@@ -114,9 +107,4 @@ func (s *APIServer) HomeHandler(w http.ResponseWriter, _ *http.Request) error {
 	}
 
 	return WriteJson(w, http.StatusOK, data)
-}
-
-func (s *APIServer) handleStopAllContainerRequest(w http.ResponseWriter, r *http.Request) error {
-
-	return nil
 }

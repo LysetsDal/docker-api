@@ -39,3 +39,8 @@ type Network struct {
 	IPPrefixLen int       `json:"IPPrefixlen"`
 	DNSNames    *[]string `json:"DNSNames"`
 }
+
+type StopParams struct {
+	Signal string `json:"signal"`
+	T      int    `json:"t"`
+}
