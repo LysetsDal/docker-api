@@ -1,4 +1,4 @@
-package main
+package types
 
 type Container struct {
 	Id      string   `json:"Id"`
@@ -38,17 +38,4 @@ type Network struct {
 	IPAddress   string    `json:"IPAddress"`
 	IPPrefixLen int       `json:"IPPrefixlen"`
 	DNSNames    *[]string `json:"DNSNames"`
-}
-
-// CreateDefaultContainer Test to create a default container
-func CreateDefaultContainer() *Container {
-	return &Container{
-		Id:    "dummy_id",
-		Names: []string{"nostalgic_beaver"},
-		Image: "test-image:latest",
-		Ports: []Port{},
-		NetworkSettings: NetworkSettings{
-			Networks: map[string]Network{},
-		},
-	}
 }
