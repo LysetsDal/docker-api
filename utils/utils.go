@@ -9,9 +9,9 @@ import (
 )
 
 // ReadJson Read the Docker daemons responses (format json)
-func ReadJson(body io.Reader, v any) error {
+func ReadJson(body io.Reader, decodeTo any) error {
 	decoder := json.NewDecoder(body)
-	return decoder.Decode(v)
+	return decoder.Decode(decodeTo)
 }
 
 func ParseJson(r *http.Request, payload any) error {
